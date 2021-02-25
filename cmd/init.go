@@ -8,10 +8,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/99designs/gqlgen/api"
-	"github.com/99designs/gqlgen/codegen/config"
-	"github.com/99designs/gqlgen/internal/code"
-	"github.com/99designs/gqlgen/plugin/servergen"
+	"github.com/fizx/gqlgen/api"
+	"github.com/fizx/gqlgen/codegen/config"
+	"github.com/fizx/gqlgen/internal/code"
+	"github.com/fizx/gqlgen/plugin/servergen"
 	"github.com/urfave/cli/v2"
 )
 
@@ -63,15 +63,15 @@ autobind:
 models:
   ID:
     model:
-      - github.com/99designs/gqlgen/graphql.ID
-      - github.com/99designs/gqlgen/graphql.Int
-      - github.com/99designs/gqlgen/graphql.Int64
-      - github.com/99designs/gqlgen/graphql.Int32
+      - github.com/fizx/gqlgen/graphql.ID
+      - github.com/fizx/gqlgen/graphql.Int
+      - github.com/fizx/gqlgen/graphql.Int64
+      - github.com/fizx/gqlgen/graphql.Int32
   Int:
     model:
-      - github.com/99designs/gqlgen/graphql.Int
-      - github.com/99designs/gqlgen/graphql.Int64
-      - github.com/99designs/gqlgen/graphql.Int32
+      - github.com/fizx/gqlgen/graphql.Int
+      - github.com/fizx/gqlgen/graphql.Int64
+      - github.com/fizx/gqlgen/graphql.Int32
 `))
 
 var schemaDefault = `# GraphQL schema example
