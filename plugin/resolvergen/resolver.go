@@ -57,7 +57,11 @@ func (m *Plugin) generateSingleFile(data *codegen.Data) error {
 				continue
 			}
 
-			resolver := Resolver{o, f, `panic("not implemented")`}
+			if f.DefaultResolver == "" {
+				f.DefaultResolver = `panic("not implemented")`
+			}
+
+			resolver := Resolver{o, f, f.DefaultResolver}
 			file.Resolvers = append(file.Resolvers, &resolver)
 		}
 	}
@@ -105,7 +109,10 @@ func (m *Plugin) generatePerSchema(data *codegen.Data) error {
 			structName := templates.LcFirst(o.Name) + templates.UcFirst(data.Config.Resolver.Type)
 			implementation := strings.TrimSpace(rewriter.GetMethodBody(structName, f.GoFieldName))
 			if implementation == "" {
-				implementation = `panic(fmt.Errorf("not implemented"))`
+				if f.DefaultResolver == "" {
+					f.DefaultResolver = `panic("not implemented")`
+				}
+				implementation = f.DefaultResolver
 			}
 
 			resolver := Resolver{o, f, implementation}

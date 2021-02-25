@@ -28,6 +28,7 @@ type Field struct {
 	Object           *Object          // A link back to the parent object
 	Default          interface{}      // The default value
 	Stream           bool             // does this field return a channel?
+	DefaultResolver  string           // Custom default resolver implementation
 	Directives       []*Directive
 }
 
